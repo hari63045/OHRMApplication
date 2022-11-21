@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Animals">
+  <test thread-count="5" name="DomesticAnimals">
+    <classes>
+      <class name="testng.DomesticAnimals2"/>
+      <class name="testng.DomesticAnimals1"/>  
+    </classes>
+  </test> <!-- Test -->
+  
+   <test thread-count="5" name="WildAnimals">
+    <classes>
+        <class name="testng.WildAnimals2"/>
+      <class name="testng.WildAnimals1"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Animals -->

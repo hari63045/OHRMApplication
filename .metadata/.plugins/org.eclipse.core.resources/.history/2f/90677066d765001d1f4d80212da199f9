@@ -1,0 +1,65 @@
+package com.OrangeHRMTestCases;
+
+
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.logging.Logger;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+import com.OHRM.BaseTest;
+
+public class LoginTest extends BaseTest {
+
+	@Test
+	public void loginpage() throws IOException
+	
+	{
+		//Logger log =Logger.getLogger(LoginTest.class);
+		
+		
+		file=new FileInputStream("C:\\Users\\Krish\\Desktop\\OrangeHRMTestdata.xlsx");
+		   workBook =new XSSFWorkbook(file);
+		   workBooksheet=workBook.getSheet("sheet1");
+		  Row  sheet1Row=workBooksheet.getRow(1);
+		  Cell  sheet1Rowcell=sheet1Row.getCell(0);
+		  
+		String username =sheet1Rowcell.getStringCellValue();
+		WebElement userNameTxtBox =	driver.findElement(By.id("txtUsername"));
+		userNameTxtBox.sendKeys(username);
+		
+		WebElement passwordTxtBox=driver.findElement(By.id("txtPassword"));
+		Cell  password1cell=sheet1Row.getCell(1);
+		String password=password1cell.getStringCellValue();
+		passwordTxtBox.sendKeys("password");
+			
+		WebElement loginButton=driver.findElement(By.name("Submit"));
+		loginButton.click();
+		
+		WebElement welcome= driver.findElement(By.linkText("Welcome Admin"));
+		welcome.click();
+		
+		WebElement pim=driver.findElement(By.id("menu_pim_viewPimModule"));
+		Actions act=new Actions(driver);
+		act.moveToElement(pim).build().perform();
+		pim.click();
+		
+		WebElement addemployee= driver.findElement(By.id("menu_pim_addEmployee"));
+		addemployee.click();
+		
+		
+		
+		
+//		WebElement logout=driver .findElement(By.linkText("Logout"));
+//		logout.click();
+	}
+	
+}

@@ -1,0 +1,33 @@
+package com.OrangeHRMTestCases;
+
+import java.io.FileInputStream;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+public class LoginTest {
+
+	
+	public String application ="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login";
+	public WebDriver driver;
+	public FileInputStream file;
+	
+	
+	@BeforeTest
+	public void browserpage()
+	{
+		  System.setProperty("webdriver.chrome.driver", "D:\\chromedriver\\chromedriver.exe");
+		  driver = new ChromeDriver();
+		  driver.get(application);
+		  
+		  
+	}
+	
+	@AfterTest
+	public void closebrowser() {
+		driver.quit();
+		
+	}
+}

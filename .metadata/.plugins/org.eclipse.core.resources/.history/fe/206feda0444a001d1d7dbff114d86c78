@@ -1,0 +1,5 @@
+package com.nopCommerce.utils;
+
+public class Browser {
+
+}

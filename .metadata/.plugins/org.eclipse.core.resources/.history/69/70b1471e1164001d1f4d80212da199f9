@@ -1,0 +1,17 @@
+package Practice;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeTest;
+
+public class Youtube {
+
+	
+	@BeforeTest
+	public static void youtubepage()
+	{
+		String application = "https://www.youtube.com/";
+		WebDriver driver;
+		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver\\chromedriver.exe");
+		driver.get(application);
+	}
+}

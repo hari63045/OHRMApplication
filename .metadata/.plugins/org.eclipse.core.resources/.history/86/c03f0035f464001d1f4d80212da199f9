@@ -1,0 +1,12 @@
+package com.OHRM;
+
+
+public class BaseTest extends LoginTest {
+	
+	public void applicationlogin()
+	{
+		
+	}
+
+}
+
